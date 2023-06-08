@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer registration Form javascript</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <style>
+        #myform {
+            margin-left: 570px;
+        }
+
+        h3 {
+            padding: 30px;
+        }
+
+        h5 {
+            padding-bottom: 10px;
+            padding-top: 20px;
+            margin-left: 30px;
+        }
+
+        p {
+            margin-left: 30px;
+        }
+
+        input {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 35px;
+        }
+
+        label {
+            font-weight: 500;
+            margin-left: 30px;
+        }
+
+        #jobview {
+            border: none;
+            font-size: larger;
+            background-color: white;
+            color: rgb(167, 11, 167);
+            font-weight: 700;
+            text-transform: capitalize;
+        }
+
+        #field {
+            border: 2px solid rgb(226, 221, 221);
+            margin-left: -200px;
+            width: 730px;
+        }
+
+        h2 {
+            margin-left: 180px;
+
+        }
+
+        #submit {
+            margin-left: 320px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border: none;
+            color: white;
+            background-color: rgb(167, 11, 167);
+            width: 100px;
+            height: 40px;
+            border-radius: 20px;
+        }
+
+        #files {
+            background-color: rgb(167, 11, 167);
+            color: white;
+            margin-left: 40px;
+            height: 35px;
+            padding: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <form method="#" id="myform" name="myform" action="https://www.cgvakindia.com/" class="row g-3 needs-validation"
+        novalidate>
+        <fieldset id="field">
+
+            <h2>REGISTRATION fORM</h2>
+
+            <div>
+
+                <h3>Job Details</h3>
+
+                <label for="">Job role</label>
+
+                <select id="jobrole" name="jobrole" disabled>
+                    <option value="sasa">System and Application Services Associate</option>
+                    <option value="webui">Web UI</option>
+                    <option value="dataanalyst">Data Analyst</option>
+                </select>
+
+                <button id="jobview" data-toggle="modal" data-target=".bd-example-modal-lg">View job
+                    Description</button>
+
+
+
+            </div>
+
+
+
+            <div>
+                <h3>Source Details</h3>
+
+                <h5>How did you find this job?</h4>
+
+                    <label for=""></label>
+
+                    <select id="findrole" name="findrole">
+                        <option value="jobboard">Job Board</option>
+                        <option value="campus">Campus</option>
+                        <option value="sociamedia">Social Media</option>
+                    </select>
+
+
+            </div>
+
+
+
+            <div>
+
+                <h3>Personal Details</h3>
+
+                <h5>Full Name</h4>
+
+                    <label for=""></label>
+
+                    <select id="title" name="title">
+                        <option placeholder="Title" value="Mr.">Mr.</option>
+                        <option placeholder="Title" value="Mrs.">Mrs.</option>
+                        <option placeholder="Title" value="others">others</option>
+
+                    </select>
+
+
+            </div>
+
+
+
+            <div>
+
+                <label for=""></label>
+
+                <input type="text" placeholder="First Name" id="firstname" required>
+
+
+
+            </div>
+
+
+
+            <div>
+
+                <label for=""></label>
+                <input type="text" placeholder="Last Name" id="lastname" required>
+
+
+
+            </div>
+
+
+
+            <div>
+
+                <h5> User Email</h5>
+
+                <label for=""></label>
+                <input type="email" placeholder="email" id="email" required>
+
+
+
+            </div>
+
+
+            <div>
+
+                <h5>User Password</h5>
+
+                <label for=""></label>
+                <input type="text" placeholder="password" id="password" required>
+
+
+
+            </div>
+
+
+            <div>
+
+                <h5>Mobile</h5>
+
+                <label for=""></label>
+                <input type="tel" placeholder="081234 56789" id="mobile" required>
+
+
+
+            </div>
+
+
+
+            <div>
+
+                <h5>Gender</h5>
+
+                <label for="male">Male</label>
+                <input type="radio" id="male" name="gender" value="Male">
+
+                <label for="female">Female</label>
+                <input type="radio" id="female" name="gender" value="Female">
+
+                <label for="others">Others</label>
+                <input type="radio" id="others" name="gender" value="Others">
+
+
+
+            </div>
+
+
+            <div>
+
+                <h5>Address</h5>
+
+                <label for=""></label>
+                <input type="textarea" placeholder="Street Address" id="Street_Address" required>
+
+
+
+            </div>
+
+
+            <div>
+
+                <label for=""></label>
+                <input type="textarea" placeholder="Street Address Line 2" id="Street_Address_Line2" required>
+
+
+
+            </div>
+
+
+            <div>
+
+                <label for=""></label>
+                <input type="text" placeholder="City" id="city" required>
+
+
+
+
+                <div>
+
+                    <label for=""></label>
+                    <input type="text" placeholder="Postal Code" id="Postal_Code" required>
+
+
+
+                </div>
+
+
+                <div>
+
+                    <label for=""></label>
+                    <input type="text" placeholder="State/Province" id="state" required>
+
+
+
+                </div>
+
+
+
+                <div>
+
+                    <h5>Date of Birth</h5>
+
+                    <label for=""></label>
+                    <input type="date" id="dob" placeholder="birthdate" required>
+
+
+
+                </div>
+
+
+                <div>
+
+                    <h3>Educational Details</h3>
+
+                    <label for="">RegisterNo</label>
+                    <input type="text" id="registerno" name="registerno" required>
+
+
+
+                </div>
+
+
+
+                <div>
+
+                    <h5>Upload your CV</h5>
+
+                    <p><label for="">Select files:</label></p>
+                    <input type="file" id="files" name="files" multiple required>
+
+
+
+                </div>
+
+                <div>
+
+                    <h5>Percentage</h5>
+
+                    <label for="">CGPA</label>
+                    <input type="number" id="cgpa" name="cgpa" multiple required>
+
+
+
+                </div>
+
+
+
+
+                <div>
+
+                    <h5>Experience</h5>
+
+                    <label for="">START-END-DATE</label>
+                    <input type="date" id="start1" name="date" required>
+                    <input type="date" id="end1" name="date" required>
+
+
+
+                </div>
+
+
+                <div>
+
+                    <h5>Any other information you think we should know about</h5>
+
+                    <label for=""></label>
+                    <input type="textarea" id="anyinfo" required>
+
+
+
+                </div><br>
+
+
+                <div>
+
+                    <label for="privacy"><b id="privacyy">Privacy and Consent</b></label>
+                    <input type="checkbox" id="privacy" required>
+
+                    <p>We kindly ask you to read our Client Privacy & Consent form before submitting this form.
+                        Submitting this
+                        client registration form indicates that you have read and agree to the terms and conditions of
+                        privacy
+                        and other conditions set out.</p>
+
+                </div>
+
+
+                <div>
+
+                    <button type="submit" id="submit" onclick="printdetails(event)">Submit</button>
+
+                </div>
+
+        </fieldset>
+
+    </form>
+
+
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <p><b>SYSTEM AND APPLICATION SERVICES ASSOCIATE</b><br><br>
+
+                    <b>JOB DESCRIPTION</b><br><br>
+
+                    <b>System and Application Services Associate</b><br><br>
+
+                    <b>About Accenture</b><br><br>
+
+                    Accenture is a global professional services company with leading capabilities in digital, cloud and
+                    security. Combining unmatched experience and specialized skills across more than 40 industries, we
+                    offer Strategy and Consulting, Interactive, Technology and Operations services--all powered by the
+                    world's largest network of Advanced Technology and Intelligent Operations centres. Our 699,000
+                    people deliver on the promise of technology and human ingenuity every day, serving clients in more
+                    than 120 countries. We embrace the power of change to create value and shared success for our
+                    clients, people, shareholders, partners, and communities. Visit us at www.accenture.com.<br><br>
+
+                    <b>Role Overview</b><br><br>
+                    Join our team that improve the way our clients and the world works. Working in challenging and
+                    dynamic environments, using their versatility to create and support solutions that meet client
+                    requirements from analysis to implementation<br><br>
+
+                    <b>What would you do?</b><br><br>
+
+                    <b>App/cloud engineering</b><br><br>
+                    Identify and solve issues within applications and infrastructure.
+                    Drive resolution of functional, technical and infrastructure issues for clients
+                    Guide clients with a variety of expertise (from users to admins and developers) in overcoming
+                    technology challenges<br>
+                    Focus on driving automation, self-service, and evolving cloud infrastructure environments
+                    Project control services<br>
+                    Enable program management and increase the overall quality of Technology Delivery
+                    Support projects in the Technology Delivery Centers by tracking and managing project management
+                    office activities<br>
+                    Proactively monitor, manage, report on execution of deliverables, and solve issues
+                    Manage multiple stakeholders to align priorities and direction.
+                    Low/no code app development<br>
+                    Develop applications using a low-code development platform, setting up and configuring systems for
+                    each client's unique requirements<br>
+                    Work with three key elements: form builders, pre-built templates, drag-and-drop visual interface,
+                    entity builder<br>
+                    Research and analyze internal business processes with the scope of optimizing and automating them
+                    Test automation engineering<br>
+                    Creation of test designs, test processes, test cases and test data
+                    Apply business and functional knowledge including testing standards, guidelines, and testing
+                    methodology to meet the teams overall test objectives
+                    Responsible for designing testing scenarios for usability testing
+                    Prepare all reports related to software testing carried out
+                    Analyze the results and then submit the observations to the development team<br><br>
+                    <b> What we need?</b><br><br>
+                    As we provide service for our clients across the globe, we expect you to be flexible to work across
+                    different time zones/shifts<br>
+                    You are willing to work in any Business Unit/Service line within the company
+                    You are willing to join /relocate to any Accenture office across India
+                    Eligibility Criteria:<br>
+                    All streams/branches of B.Sc., BCA, BBA, B.A, B.Com, B.Voc, BMS, B.B.S,B.PSc,B. Agri & RD,B. ActSc,
+                    B.F.M, B.B.I, B.A.F, B.Ed., B.M.M, B.L.I.Sc., B.FA,BBiot, B.S.Micr ,B.Design, B.Plan, M.C.M, M.Sc
+                    (Non-CS/IT), M.A, M.Com or M.FA from 2022 year of passouts with full-time education only (Part-time
+                    and distance educations are not considered)<br>
+                    Note: BE/ BTECH / ME / MTECH/MCA/ MSC (CS and IT Branch)MBA /PGDBM candidates are not eligible to
+                    apply for this role<br>
+                    Your highest educational qualification only will be considered.<br>
+                    No active backlogs during application and/or during onboarding.<br>
+                    You should have completed your relevant degree (eligible for this job role), in the stipulated<br>
+                    duration of the degree. Hence, there should be no gaps during the course of your degree. Eg: You<br>
+                    must complete your 3 year BBA course in 3 years and the 2 year M.A course in 2 years.<br>
+                    Candidate should not have appeared for Accenture Recruitment assessment/interview process in the<br>
+                    last three months.<br>
+                    Candidate should not have more than 11 months of experience<br>
+                    Candidates must be eligible to work in India either by citizenship/ have relevant work permit<br>
+                    documents.<br>
+                    Please note that Bhutan and Nepal nationals can work in India without a need for obtaining a
+                    work<br>
+                    visa. All other foreign nationals require work visa or an Overseas Citizenship of India (OCI) or
+                    Person of Indian Origin (PIO) card to work in India<br>
+                    As we provide service for our clients across the globe, we expect you to be flexible to work across
+                    different time zones/shifts<br>
+                    You are willing to work in any Business Unit/Service line within the company<br>
+                    You are willing to join /relocate to any Accenture office across India<br>
+                    Accenture has not authorized any agency, company or individual to either collect money or arrive
+                    on<br>
+                    any monetary arrangement in exchange for a job at Accenture. Accenture's criterion for hiring
+                    candidates is merit. Any agency, company or individual offering employment with Accenture in
+                    exchange for money is misrepresenting their relationship with Accenture, which has not authorized
+                    any such action. If you are approached by any entity or individuals who demand money or any other
+                    form of compensation in return for a job offer at Accenture -- even if they present themselves as
+                    representatives or employees of Accenture -- please send the details to Accenture Business Ethics
+                    Line https://businessethicsIine.com/accenture<br>
+                    Test automation engineering
+                </p><br>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function printdetails(event) {
+
+            event.preventDefault();
+
+            var jobrole = document.getElementById("jobrole").value;
+            var findrole = document.getElementById("findrole").value;
+            var title = document.getElementById("title").value;
+            var firstname = document.getElementById("firstname").value;
+            var lastname = document.getElementById("lastname").value;
+            var email = document.getElementById("email").value;
+            var mobile = document.getElementById("mobile").value;
+            var gender = document.myform.gender.value;
+            var Street_Address = document.getElementById("Street_Address").value;
+            var Street_Address_Line2 = document.getElementById("Street_Address_Line2").value;
+            var city = document.getElementById("city").value;
+            var Postal_Code = document.getElementById("Postal_Code").value;
+            var state = document.getElementById("state").value;
+            var dob = document.getElementById("dob").value;
+            var registerno = document.getElementById("registerno").value;
+            var files = document.getElementById("files").value;
+            var cgpa = document.getElementById("cgpa").value;
+            var anyinfo = document.getElementById("anyinfo").value;
+            var start = document.getElementById("start1").value;
+            var end = document.getElementById("end1").value;
+
+            var nameRegex = /^[A-Za-z]+$/;
+            var emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var mobileRegex = /^\d{10}$/;
+            var addressRegex = /^[a-zA-Z0-9\s,'-]*$/;
+            var postalCodeRegex = /^\d{5}$/;
+            var dobRegex = /^\d{4}-\d{2}-\d{2}$/;
+            var registerNoRegex = /^\d{9}$/;
+            var cgpaRegex = /^\d+(\.\d{1,2})?$/;
+
+            if (!nameRegex.test(firstname)) {
+                alert("Please enter a valid first name");
+                return;
+            }
+
+            if (!nameRegex.test(lastname)) {
+                alert("Please enter a valid last name");
+                return;
+            }
+
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email");
+                return;
+            }
+
+            if (!mobileRegex.test(mobile)) {
+                alert("Please enter a valid mobile number");
+                return;
+            }
+
+            if (!addressRegex.test(Street_Address)) {
+                alert("Please enter a valid street address");
+                return;
+            }
+
+            if (!addressRegex.test(Street_Address_Line2)) {
+                alert("Please enter a valid street address line 2");
+                return;
+            }
+
+            if (!nameRegex.test(city)) {
+                alert("Please enter a valid city");
+                return;
+            }
+
+            if (!postalCodeRegex.test(Postal_Code)) {
+                alert("Please enter a valid postal code");
+                return;
+            }
+
+            if (!nameRegex.test(state)) {
+                alert("Please enter a valid state");
+                return;
+            }
+
+            if (!dobRegex.test(dob)) {
+                alert("Please enter a valid date of birth in yyyy-mm-dd format");
+                return;
+            }
+
+            if (!registerNoRegex.test(registerno)) {
+                alert("Please enter a valid register number");
+                return;
+            }
+
+            if (!cgpaRegex.test(cgpa)) {
+                alert("Please enter a valid CGPA");
+                return;
+            }
+
+            document.write("FIRST NAME:" + firstname + "<br><br>");
+            document.write("LAST NAME:" + lastname + "<br><br>");
+            document.write("EMAIL ID:" + email + "<br><br>");
+            document.write("CONTACT:" + mobile + "<br><br>");
+            document.write("GENDER:" + gender + "<br><br>");
+            document.write("STREET ADDRESS:" + Street_Address + "<br><br>");
+            document.write("STREET ADDRESS LINE 2:" + Street_Address_Line2 + "<br><br>");
+            document.write("CITY:" + city + "<br><br>");
+            document.write("POSTAL CODE:" + Postal_Code + "<br><br>");
+            document.write("STATE:" + state + "<br><br>");
+            document.write("DATE OF BIRTH:" + dob + "<br><br>");
+            document.write("REGISTER NUMBER:" + registerno + "<br><br>");
+            document.write("FILES:" + files + "<br><br>");
+            document.write("CGPA:" + cgpa + "<br><br>");
+            document.write("ANYINFO:" + anyinfo + "<br><br>");
+
+            var dobb = new Date(dob);
+            var dif = Date.now() - dobb.getTime();
+            var daydiff = (dif / 31536000000).toFixed(0);
+            document.write("AGE :" + daydiff + "<br><br>");
+
+
+
+
+            var start = new Date(start);
+            var end = new Date(end);
+            var monthsDiff = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+            var years = Math.floor(monthsDiff / 12);
+            var months = monthsDiff % 12;
+            document.write("Years of experience:" + years + "<br><br>");
+            document.write("month of experience:" + months + "<br><br>");
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer registration details jquery</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
+
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+        integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+    <style>
+        #myform {
+            margin-left: 570px;
+        }
+
+        h3 {
+            padding: 30px;
+        }
+
+        h5 {
+            padding-bottom: 10px;
+            padding-top: 20px;
+            margin-left: 30px;
+        }
+
+        p {
+            margin-left: 30px;
+        }
+
+        input {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            height: 35px;
+        }
+
+        label {
+            font-weight: 500;
+            margin-left: 30px;
+        }
+
+        #jobview {
+            border: none;
+            font-size: larger;
+            background-color: white;
+            color: rgb(167, 11, 167);
+            font-weight: 700;
+            text-transform: capitalize;
+        }
+
+        #field {
+            border: 2px solid rgb(226, 221, 221);
+            margin-left: -200px;
+            width: 730px;
+        }
+
+        h2 {
+            margin-left: 180px;
+
+        }
+
+        #submit {
+            margin-left: 320px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border: none;
+            color: white;
+            background-color: rgb(167, 11, 167);
+            width: 100px;
+            height: 40px;
+            border-radius: 20px;
+        }
+
+        #files {
+            background-color: rgb(167, 11, 167);
+            color: white;
+            margin-left: 40px;
+            height: 35px;
+            padding: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script>
+        $(document).ready(function () {
+            $("#myform").validate({
+                rules: {
+                    firstname: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 20,
+                        pattern: /^[a-zA-Z]+$/
+                    },
+                    lastname: {
+                        required: true,
+                        minlength: 2,
+                        maxlength: 20,
+                        pattern: /^[a-zA-Z]+$/
+                    },
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    mobile: {
+                        required: true,
+                        pattern: /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/
+                    },
+
+                    password: {
+                        required: true,
+                        minlength: 8,
+                        maxlength: 16,
+                        pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$#])[A-Za-z\d@$#]{8,16}$/
+
+
+                    },
+                    Street_Address: {
+                        required: true,
+                        pattern: /^[a-zA-Z]{10-15}+$/
+                    },
+                    Street_Address_Line2: {
+                        required: true,
+                        pattern: /^[a-zA-Z]{10-15}+$/
+                    },
+                    city: {
+                        required: true,
+                        pattern: /^[a-zA-Z]{10-15}+$/
+                    },
+                    Postal_Code: {
+                        required: true,
+                        pattern: /^[a-zA-Z]+$/
+                    },
+                    registerno: {
+                        required: true,
+                        pattern: /^[0-9]+$/
+                    },
+                    state: {
+                        required: true,
+                        pattern: /^[a-zA-Z]+$/
+                    },
+                },
+                messages: {
+                    firstname: {
+                        required: "Please enter a valid username .",
+                        maxlength: "please enter the maxlenght og 20 characters",
+                        minlength: "please enter atleast two characters",
+                        pattern: "please enter the correct pattern."
+                    },
+                    lastname: {
+                        required: "Please enter a valid username .",
+                        maxlength: "please enter the maxlenght og 20 characters",
+                        minlength: "please enter atleast two characters",
+                        pattern: "please enter the correct pattern."
+                    },
+                    email: {
+                        required: "Please enter Email in proper format.",
+                        pattern: "please enter the correct pattern."
+                    },
+                    mobile: {
+                        required: "Please enter a mobile number in correct format",
+                        pattern: "please enter the correct pattern."
+                    },
+                    password: {
+                        required: "Please enter a valid password.",
+                        maxlength: "please enter the maxlenght og 16 characters",
+                        minlength: "please enter atleast 8 characters",
+                        pattern: "please enter the correct pattern."
+                    },
+                    Street_Address: {
+                        required: "Please enter address in proper format.",
+                        pattern: "please enter the correct pattern."
+                    },
+                    Street_Address_Line2: {
+                        required: "Please enter address in proper format.",
+                        pattern: "please enter the correct pattern."
+                    },
+                    city: {
+                        required: "Please enter city in proper format.",
+                        pattern: "please enter the correct pattern."
+                    },
+                    Postal_Code: {
+                        required: "Please enter postal code in proper format.",
+                        pattern: "please enter the correct pattern."
+                    },
+                    registerno: {
+                        required: "Please enter register number in proper format.",
+                        pattern: "please enter the correct pattern."
+                    },
+                    state: {
+                        required: "Please enter state in proper format.",
+                        pattern: "please enter the correct pattern."
+
+                    },
+                    submitHandler: function (form) {
+
+                        alert("Form submitted successfully!");
+
+                    }
+
+
+                }
+            });
+        });
+    </script>
+
+    <form method="#" id="myform" name="myform" action="https://www.cgvakindia.com/" class="row g-3 needs-validation"
+        novalidate>
+        <fieldset id="field">
+
+            <h2>REGISTRATION fORM</h2>
+
+            <div>
+
+                <h3>Job Details</h3>
+
+                <label for="">Job role</label>
+
+                <select id="jobrole" name="jobrole" disabled>
+                    <option value="sasa">System and Application Services Associate</option>
+                    <option value="webui">Web UI</option>
+                    <option value="dataanalyst">Data Analyst</option>
+                </select>
+
+                <button id="jobview" data-toggle="modal" data-target=".bd-example-modal-lg">View job
+                    Description</button>
+
+
+
+            </div>
+
+
+
+            <div>
+                <h3>Source Details</h3>
+
+                <h5>How did you find this job?</h4>
+
+                    <label for=""></label>
+
+                    <select id="findrole" name="findrole">
+                        <option value="jobboard">Job Board</option>
+                        <option value="campus">Campus</option>
+                        <option value="sociamedia">Social Media</option>
+                    </select>
+
+
+            </div>
+
+
+
+            <div>
+
+                <h3>Personal Details</h3>
+
+                <h5>Full Name</h4>
+
+                    <label for=""></label>
+
+                    <select id="title" name="title">
+                        <option placeholder="Title" value="Mr.">Mr.</option>
+                        <option placeholder="Title" value="Mrs.">Mrs.</option>
+                        <option placeholder="Title" value="others">others</option>
+
+                    </select>
+
+
+            </div>
+
+
+
+            <div>
+                <label for=""></label>
+
+                <input type="text" placeholder="First Name" id="firstname" name="firstname" required>
+
+
+
+            </div>
+
+
+
+            <div>
+
+                <label for=""></label>
+                <input type="text" placeholder="Last Name" id="lastname" name="lastname" required>
+
+
+
+            </div>
+
+
+
+            <div>
+
+                <h5> User Email</h5>
+
+                <label for=""></label>
+                <input type="email" placeholder="email" id="email" name="email" required>
+
+
+
+            </div>
+
+
+            <div>
+
+                <h5>User Password</h5>
+
+                <label for=""></label>
+                <input type="text" placeholder="password" id="password" name="password" required>
+
+
+
+            </div>
+
+
+            <div>
+
+                <h5>Mobile</h5>
+
+                <label for=""></label>
+                <input type="tel" placeholder="081234 56789" id="mobile" name="mobile" required>
+
+
+
+            </div>
+
+
+
+            <div>
+
+                <h5>Gender</h5>
+
+                <label for="male">Male</label>
+                <input type="radio" id="male" name="gender" value="Male">
+
+                <label for="female">Female</label>
+                <input type="radio" id="female" name="gender" value="Female">
+
+                <label for="others">Others</label>
+                <input type="radio" id="others" name="gender" value="Others">
+
+
+
+            </div>
+
+
+            <div>
+
+                <h5>Address</h5>
+
+                <label for=""></label>
+                <input type="textarea" placeholder="Street Address" id="Street_Address" name="Street_Address" required>
+
+
+
+            </div>
+
+
+            <div>
+
+                <label for=""></label>
+                <input type="textarea" placeholder="Street Address Line 2" id="Street_Address_Line2"
+                    name="Street_Address_Line2" required>
+
+
+
+            </div>
+
+
+            <div>
+
+                <label for=""></label>
+                <input type="text" placeholder="City" id="city" nmae="city" required>
+
+
+
+
+                <div>
+
+                    <label for=""></label>
+                    <input type="text" placeholder="Postal Code" id="Postal_Code" name="Postal_Code" required>
+
+
+
+                </div>
+
+
+                <div>
+
+                    <label for=""></label>
+                    <input type="text" placeholder="State/Province" id="state" name="state" required>
+
+
+
+                </div>
+
+
+
+                <div>
+
+                    <h5>Date of Birth</h5>
+
+                    <label for=""></label>
+                    <input type="date" id="dob" name="dob" placeholder="birthdate" required>
+
+
+
+                </div>
+
+
+                <div>
+
+                    <h3>Educational Details</h3>
+
+                    <label for="">RegisterNo</label>
+                    <input type="text" id="registerno" name="registerno" required>
+
+
+
+                </div>
+
+
+
+                <div>
+
+                    <h5>Upload your CV</h5>
+
+                    <p><label for="">Select files:</label></p>
+                    <input type="file" id="files" name="files" multiple required>
+
+
+
+                </div>
+
+                <div>
+
+                    <h5>Percentage</h5>
+
+                    <label for="">CGPA</label>
+                    <input type="number" id="cgpa" name="cgpa" multiple required>
+
+
+
+                </div>
+
+
+
+
+                <div>
+
+                    <h5>Experience</h5>
+
+                    <label for="">START-END-DATE</label>
+                    <input type="date" id="start1" name="date" required>
+                    <input type="date" id="end1" name="date" required>
+
+
+
+                </div>
+
+
+                <div>
+
+                    <h5>Any other information you think we should know about</h5>
+
+                    <label for=""></label>
+                    <input type="textarea" id="anyinfo" name="anyinfo" required>
+
+
+
+                </div><br>
+
+
+                <div>
+
+                    <label for="privacy"><b id="privacyy">Privacy and Consent</b></label>
+                    <input type="checkbox" id="privacy" name="privacy" required>
+
+                    <p>We kindly ask you to read our Client Privacy & Consent form before submitting this form.
+                        Submitting this
+                        client registration form indicates that you have read and agree to the terms and conditions of
+                        privacy
+                        and other conditions set out.</p>
+
+                </div>
+
+
+                <div>
+
+                    <button type="submit" id="submit">Submit</button>
+
+                </div>
+
+        </fieldset>
+
+    </form>
+
+    <script>
+        function printdetails(event) {
+
+            event.preventDefault();
+
+            var jobrole = document.getElementById("jobrole").value;
+            var findrole = document.getElementById("findrole").value;
+            var title = document.getElementById("title").value;
+            var firstname = document.getElementById("firstname").value;
+            var lastname = document.getElementById("lastname").value;
+            var email = document.getElementById("email").value;
+            var mobile = document.getElementById("mobile").value;
+            var gender = document.myform.gender.value;
+            var Street_Address = document.getElementById("Street_Address").value;
+            var Street_Address_Line2 = document.getElementById("Street_Address_Line2").value;
+            var city = document.getElementById("city").value;
+            var Postal_Code = document.getElementById("Postal_Code").value;
+            var state = document.getElementById("state").value;
+            var dob = document.getElementById("dob").value;
+            var registerno = document.getElementById("registerno").value;
+            var files = document.getElementById("files").value;
+            var cgpa = document.getElementById("cgpa").value;
+            var anyinfo = document.getElementById("anyinfo").value;
+            var start = document.getElementById("start1").value;
+            var end = document.getElementById("end1").value;
+
+            document.write("FIRST NAME:" + firstname + "<br><br>");
+            document.write("LAST NAME:" + lastname + "<br><br>");
+            document.write("EMAIL ID:" + email + "<br><br>");
+            document.write("CONTACT:" + mobile + "<br><br>");
+            document.write("GENDER:" + gender + "<br><br>");
+            document.write("STREET ADDRESS:" + Street_Address + "<br><br>");
+            document.write("STREET ADDRESS LINE 2:" + Street_Address_Line2 + "<br><br>");
+            document.write("CITY:" + city + "<br><br>");
+            document.write("POSTAL CODE:" + Postal_Code + "<br><br>");
+            document.write("STATE:" + state + "<br><br>");
+            document.write("DATE OF BIRTH:" + dob + "<br><br>");
+            document.write("REGISTER NUMBER:" + registerno + "<br><br>");
+            document.write("FILES:" + files + "<br><br>");
+            document.write("CGPA:" + cgpa + "<br><br>");
+            document.write("ANYINFO:" + anyinfo + "<br><br>");
+
+            var dobb = new Date(dob);
+            var dif = Date.now() - dobb.getTime();
+            var daydiff = (dif / 31536000000).toFixed(0);
+            document.write("AGE :" + daydiff + "<br><br>");
+
+
+
+
+            var start = new Date(start);
+            var end = new Date(end);
+            var monthsDiff = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
+            var years = Math.floor(monthsDiff / 12);
+            var months = monthsDiff % 12;
+            document.write("Years of experience:" + years + "<br><br>");
+            document.write("month of experience:" + months + "<br><br>");
+
+
+        }
+    </script>
+
+</body>
+
+</html>
