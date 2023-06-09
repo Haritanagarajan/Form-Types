@@ -121,18 +121,36 @@
             height: 40px;
             border-radius: 20px;
         }
+
+        #check {
+            margin-top: 20px;
+        }
+
+        #timer {
+            color: red;
+            font-weight: 600;
+            margin-top: 10px;
+            position: sticky;
+            top: 0;
+        }
+        #state{
+            width:195px;
+            height:35px;
+            margin-top:10px;
+        }
     </style>
 
 </head>
 
 <body>
 
+    <p id="timer"></p>
+
     <form method="#" id="myform" name="myform" action="#" class="row g-3 needs-validation" novalidate>
         <fieldset id="field">
 
             <h2>REGISTRATION fORM</h2>
 
-            <button id="startButton">Start Timer</button>
 
             <div>
 
@@ -233,7 +251,7 @@
                 <h5>User Password</h5>
 
                 <label for=""></label>
-                <input type="text" placeholder="password" id="password" required>
+                <input type="password" placeholder="password" id="password" required>
 
 
 
@@ -280,6 +298,8 @@
 
 
 
+
+
             </div>
 
 
@@ -314,9 +334,22 @@
                 <div>
 
                     <label for=""></label>
-                    <input type="text" placeholder="State/Province" id="state" required>
+                    <!-- <input type="text" placeholder="State/Province" id="state" required> -->
 
-
+                    <select id="state">
+                        <option value="" selected disabled>Select State</option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Tamilnadu">Tamilnadu</option>
+                    </select>
 
                 </div>
 
@@ -328,7 +361,7 @@
 
                     <label for=""></label>
                     <!-- <input type="date" id="dob" placeholder="birthdate" required> -->
-                    <input type="text" id="dob" placeholder="birthdate" pattern="\d{1,2}-\d{1,2}-\d{4}" required>
+                    <input type="text" id="dob" placeholder="DD/MM/YYYY" pattern="\d{1,2}-\d{1,2}-\d{4}" required>
 
 
 
@@ -348,29 +381,7 @@
 
 
 
-            <div>
 
-                <h5>Select your College</h5>
-
-                <label for="validationCustom23" class="form-label"></label>
-
-                <select id="myDropdown" onchange="checkSelection(this)">
-                    <option value="">Select an option</option>
-                    <option value="Sri krishna adithys college of arts and science">Sri krishna adithys college of arts
-                        and science</option>
-                    <option value="Sri krishna college of technology">Sri krishna college of technology</option>
-                    <option value="psg college of engineering and technology ">psg college of engineering and technology
-                    </option>
-                    <option value="other">Other</option>
-
-                </select>
-
-                <div id="otherInput" style="display: none;">
-                    <label for="otherText">Please specify:</label>
-                    <input type="text" id="otherText" />
-                </div>
-
-            </div><br>
 
 
             <div>
@@ -396,17 +407,45 @@
             </div>
 
 
+            <div>
+
+                <h5>Select your Company</h5>
+
+                <label for="validationCustom23" class="form-label"></label>
+
+                <select id="myDropdown" onchange="checkSelection(this)">
+                    <option value="">Select an option</option>
+                    <option value="cgvak exports and private limited">cgvak exports and private limited
+                        and science</option>
+                    <option value="G2vak technology">G2vak technology</option>
+                    <option value="TCS ">TCS
+                    </option>
+                    <option value="other">Other</option>
+
+                </select>
+
+                <div id="otherInput" style="display: none;">
+                    <label for="otherText">Please specify:</label>
+                    <input type="text" id="otherText" />
+                </div>
+
+            </div><br>
+
 
 
             <div>
 
                 <h5>Experience</h5>
 
-                <label for="">START-END-DATE</label>
-                <input type="date" id="start1" name="date" required>
-                <input type="date" id="end1" name="date" required>
+                <label for="start-date">START DATE</label>
+                <input type="date" id="start-date" name="date" onclick="calculateExperience()" required>
 
 
+
+
+
+
+                <p id="result"></p>
 
             </div>
 
@@ -436,16 +475,14 @@
 
             </div>
 
-            <button id="stopButton">Stop Timer</button>
 
-            <p id="elapsedTime"></p>
 
             <div>
 
 
                 <div>
 
-                    <button type="submit" id="submit" onclick="printdetails(event)">Submit</button>
+                    <button type="submit" id="submit" value="submit" onclick="printdetails(event)">Submit</button>
 
                 </div>
 
@@ -578,8 +615,6 @@
             var files = document.getElementById("files").value;
             var cgpa = document.getElementById("cgpa").value;
             var anyinfo = document.getElementById("anyinfo").value;
-            var start = document.getElementById("start1").value;
-            var end = document.getElementById("end1").value;
             var otherInput = document.getElementById("otherInput").value;
             var myDropdown = document.getElementById("myDropdown").value;
 
@@ -686,43 +721,11 @@
 
 
 
-            var start = new Date(start);
-            var end = new Date(end);
-            var monthsDiff = (end.getFullYear() - start.getFullYear()) * 12 + (end.getMonth() - start.getMonth());
-            var years = Math.floor(monthsDiff / 12);
-            var months = monthsDiff % 12;
-            document.write("Years of experience:" + years + "<br><br>");
-            document.write("month of experience:" + months + "<br><br>");
-
-
-
-
 
         }
 
 
 
-
-    </script>
-
-    <script>
-
-        $(document).ready(function () {
-            var startTime;
-            var endTime;
-
-            $("#startButton").click(function () {
-                startTime = $.now();
-            });
-
-            $("#stopButton").click(function () {
-                if (startTime) {
-                    endTime = $.now();
-                    var elapsedTime = endTime - startTime;
-                    $("#elapsedTime").text("Elapsed time: " + elapsedTime + " milliseconds");
-                }
-            });
-        });
 
     </script>
 
@@ -741,7 +744,81 @@
 
     </script>
 
+    <script>
+        function calculateExperience() {
+            const startDate = new Date(document.getElementById("start-date").value);
+            const currentDate = new Date();
 
+            const yearsDiff = currentDate.getFullYear() - startDate.getFullYear();
+            const monthsDiff = currentDate.getMonth() - startDate.getMonth();
+
+            let experienceYears = yearsDiff;
+            let experienceMonths = monthsDiff;
+
+            if (monthsDiff < 0) {
+                experienceYears -= 1;
+                experienceMonths += 12;
+            }
+
+            document.getElementById("result").textContent = `Experience: ${experienceYears} years and ${experienceMonths} months`;
+        }
+    </script>
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const form = document.getElementById("myform");
+            const timer = document.getElementById("timer");
+
+            const timerDuration = 2 * 60 * 1000;
+
+            const startTime = new Date().getTime();
+            const endTime = startTime + timerDuration;
+
+            const updateTimer = setInterval(function () {
+                const currentTime = new Date().getTime();
+                const remainingTime = endTime - currentTime;
+
+                if (remainingTime <= 0) {
+                    clearInterval(updateTimer);
+                    location.reload();
+                } else {
+                    const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+                    timer.textContent = `Time remaining: ${minutes} minutes ${seconds} seconds`;
+                }
+            }, 1000);
+
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+                clearInterval(updateTimer);
+                form.submit();
+            });
+        });
+
+    </script>
+
+
+
+    <script>
+        fetch('https://api.npoint.io/4340dff5f82742fab93f')
+            .then(response => response.json())
+            .then(data => {
+                const dropdown = document.getElementById("state-dropdown");
+
+                data.forEach((state) => {
+                    const option = document.createElement("option");
+                    option.value = state;
+                    option.text = state;
+                    dropdown.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    </script>
 
 </body>
 
