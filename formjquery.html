@@ -7,21 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer registration details jquery</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
 
-    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"
         integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+
     <style>
+
         #myform {
             margin-left: 570px;
         }
@@ -90,12 +96,38 @@
             height: 35px;
             padding: 5px;
         }
+
+        #startButton {
+            margin-left: 320px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border: none;
+            color: white;
+            background-color: rgb(167, 11, 167);
+            width: 100px;
+            height: 40px;
+            border-radius: 20px;
+        }
+
+        #stopButton {
+            margin-left: 320px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border: none;
+            color: white;
+            background-color: rgb(167, 11, 167);
+            width: 100px;
+            height: 40px;
+            border-radius: 20px;
+        }
     </style>
 
 </head>
 
 <body>
+
     <script>
+
         $(document).ready(function () {
             $("#myform").validate({
                 rules: {
@@ -130,11 +162,11 @@
                     },
                     Street_Address: {
                         required: true,
-                        pattern: /^[a-zA-Z]{10-15}+$/
+                        pattern: /^[a-zA-Z]+$/
                     },
                     Street_Address_Line2: {
                         required: true,
-                        pattern: /^[a-zA-Z]{10-15}+$/
+                        pattern: /^[a-zA-Z]+$/
                     },
                     city: {
                         required: true,
@@ -217,11 +249,14 @@
         });
     </script>
 
-    <form method="#" id="myform" name="myform" action="https://www.cgvakindia.com/" class="row g-3 needs-validation"
-        novalidate>
+    <form method="#" id="myform" name="myform" action="#" class="row g-3 needs-validation" novalidate>
         <fieldset id="field">
 
             <h2>REGISTRATION fORM</h2>
+
+            <button id="startButton">Start Timer</button>
+
+
 
             <div>
 
@@ -416,7 +451,8 @@
                     <h5>Date of Birth</h5>
 
                     <label for=""></label>
-                    <input type="date" id="dob" name="dob" placeholder="birthdate" required>
+                    <!-- <input type="date" id="dob" name="dob" placeholder="birthdate" required> -->
+                    <input type="text" id="dob" name="dob" placeholder="birthdate" required>
 
 
 
@@ -434,6 +470,30 @@
 
                 </div>
 
+
+                <div>
+
+                    <h5>Select your College</h5>
+    
+                    <label for="validationCustom23" class="form-label"></label>
+    
+                    <select id="myDropdown" onchange="checkSelection(this)">
+                        <option value="">Select an option</option>
+                        <option value="Sri krishna adithys college of arts and science">Sri krishna adithys college of arts
+                            and science</option>
+                        <option value="Sri krishna college of technology">Sri krishna college of technology</option>
+                        <option value="psg college of engineering and technology ">psg college of engineering and technology
+                        </option>
+                        <option value="other">Other</option>
+    
+                    </select>
+    
+                    <div id="otherInput" style="display: none;">
+                        <label for="otherText">Please specify:</label>
+                        <input type="text" id="otherText" />
+                    </div>
+    
+                </div><br>
 
 
                 <div>
@@ -461,6 +521,7 @@
 
 
 
+
                 <div>
 
                     <h5>Experience</h5>
@@ -472,6 +533,7 @@
 
 
                 </div>
+
 
 
                 <div>
@@ -500,15 +562,125 @@
                 </div>
 
 
+                <button id="stopButton">Stop Timer</button>
+
+                <p id="elapsedTime"></p>
+
                 <div>
 
-                    <button type="submit" id="submit">Submit</button>
+                    <button type="submit" id="submit" onclick="printdetails(event)">Submit</button>
 
                 </div>
 
         </fieldset>
 
     </form>
+
+
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <p><b>SYSTEM AND APPLICATION SERVICES ASSOCIATE</b><br><br>
+
+                    <b>JOB DESCRIPTION</b><br><br>
+
+                    <b>System and Application Services Associate</b><br><br>
+
+                    <b>About Accenture</b><br><br>
+
+                    Accenture is a global professional services company with leading capabilities in digital, cloud and
+                    security. Combining unmatched experience and specialized skills across more than 40 industries, we
+                    offer Strategy and Consulting, Interactive, Technology and Operations services--all powered by the
+                    world's largest network of Advanced Technology and Intelligent Operations centres. Our 699,000
+                    people deliver on the promise of technology and human ingenuity every day, serving clients in more
+                    than 120 countries. We embrace the power of change to create value and shared success for our
+                    clients, people, shareholders, partners, and communities. Visit us at www.accenture.com.<br><br>
+
+                    <b>Role Overview</b><br><br>
+                    Join our team that improve the way our clients and the world works. Working in challenging and
+                    dynamic environments, using their versatility to create and support solutions that meet client
+                    requirements from analysis to implementation<br><br>
+
+                    <b>What would you do?</b><br><br>
+
+                    <b>App/cloud engineering</b><br><br>
+                    Identify and solve issues within applications and infrastructure.
+                    Drive resolution of functional, technical and infrastructure issues for clients
+                    Guide clients with a variety of expertise (from users to admins and developers) in overcoming
+                    technology challenges<br>
+                    Focus on driving automation, self-service, and evolving cloud infrastructure environments
+                    Project control services<br>
+                    Enable program management and increase the overall quality of Technology Delivery
+                    Support projects in the Technology Delivery Centers by tracking and managing project management
+                    office activities<br>
+                    Proactively monitor, manage, report on execution of deliverables, and solve issues
+                    Manage multiple stakeholders to align priorities and direction.
+                    Low/no code app development<br>
+                    Develop applications using a low-code development platform, setting up and configuring systems for
+                    each client's unique requirements<br>
+                    Work with three key elements: form builders, pre-built templates, drag-and-drop visual interface,
+                    entity builder<br>
+                    Research and analyze internal business processes with the scope of optimizing and automating them
+                    Test automation engineering<br>
+                    Creation of test designs, test processes, test cases and test data
+                    Apply business and functional knowledge including testing standards, guidelines, and testing
+                    methodology to meet the teams overall test objectives
+                    Responsible for designing testing scenarios for usability testing
+                    Prepare all reports related to software testing carried out
+                    Analyze the results and then submit the observations to the development team<br><br>
+                    <b> What we need?</b><br><br>
+                    As we provide service for our clients across the globe, we expect you to be flexible to work across
+                    different time zones/shifts<br>
+                    You are willing to work in any Business Unit/Service line within the company
+                    You are willing to join /relocate to any Accenture office across India
+                    Eligibility Criteria:<br>
+                    All streams/branches of B.Sc., BCA, BBA, B.A, B.Com, B.Voc, BMS, B.B.S,B.PSc,B. Agri & RD,B. ActSc,
+                    B.F.M, B.B.I, B.A.F, B.Ed., B.M.M, B.L.I.Sc., B.FA,BBiot, B.S.Micr ,B.Design, B.Plan, M.C.M, M.Sc
+                    (Non-CS/IT), M.A, M.Com or M.FA from 2022 year of passouts with full-time education only (Part-time
+                    and distance educations are not considered)<br>
+                    Note: BE/ BTECH / ME / MTECH/MCA/ MSC (CS and IT Branch)MBA /PGDBM candidates are not eligible to
+                    apply for this role<br>
+                    Your highest educational qualification only will be considered.<br>
+                    No active backlogs during application and/or during onboarding.<br>
+                    You should have completed your relevant degree (eligible for this job role), in the stipulated<br>
+                    duration of the degree. Hence, there should be no gaps during the course of your degree. Eg: You<br>
+                    must complete your 3 year BBA course in 3 years and the 2 year M.A course in 2 years.<br>
+                    Candidate should not have appeared for Accenture Recruitment assessment/interview process in the<br>
+                    last three months.<br>
+                    Candidate should not have more than 11 months of experience<br>
+                    Candidates must be eligible to work in India either by citizenship/ have relevant work permit<br>
+                    documents.<br>
+                    Please note that Bhutan and Nepal nationals can work in India without a need for obtaining a
+                    work<br>
+                    visa. All other foreign nationals require work visa or an Overseas Citizenship of India (OCI) or
+                    Person of Indian Origin (PIO) card to work in India<br>
+                    As we provide service for our clients across the globe, we expect you to be flexible to work across
+                    different time zones/shifts<br>
+                    You are willing to work in any Business Unit/Service line within the company<br>
+                    You are willing to join /relocate to any Accenture office across India<br>
+                    Accenture has not authorized any agency, company or individual to either collect money or arrive
+                    on<br>
+                    any monetary arrangement in exchange for a job at Accenture. Accenture's criterion for hiring
+                    candidates is merit. Any agency, company or individual offering employment with Accenture in
+                    exchange for money is misrepresenting their relationship with Accenture, which has not authorized
+                    any such action. If you are approached by any entity or individuals who demand money or any other
+                    form of compensation in return for a job offer at Accenture -- even if they present themselves as
+                    representatives or employees of Accenture -- please send the details to Accenture Business Ethics
+                    Line https://businessethicsIine.com/accenture<br>
+                    Test automation engineering
+                </p><br>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
 
     <script>
         function printdetails(event) {
@@ -535,6 +707,8 @@
             var anyinfo = document.getElementById("anyinfo").value;
             var start = document.getElementById("start1").value;
             var end = document.getElementById("end1").value;
+            var otherInput = document.getElementById("otherInput").value;
+            var myDropdown = document.getElementById("myDropdown").value;
 
             document.write("FIRST NAME:" + firstname + "<br><br>");
             document.write("LAST NAME:" + lastname + "<br><br>");
@@ -551,6 +725,18 @@
             document.write("FILES:" + files + "<br><br>");
             document.write("CGPA:" + cgpa + "<br><br>");
             document.write("ANYINFO:" + anyinfo + "<br><br>");
+
+
+            if (otherInput) {
+                document.write("college:" + otherInput + "<br><br>");
+
+            }
+            else {
+                document.write("college:" + myDropdown + "<br><br>");
+
+            }
+
+            
 
             var dobb = new Date(dob);
             var dif = Date.now() - dobb.getTime();
@@ -571,6 +757,48 @@
 
         }
     </script>
+
+    <script>
+
+        $(document).ready(function () {
+            var startTime;
+            var endTime;
+
+            $("#startButton").click(function () {
+                startTime = $.now();
+            });
+
+            $("#stopButton").click(function () {
+                if (startTime) {
+                    endTime = $.now();
+                    var elapsedTime = endTime - startTime;
+                    $("#elapsedTime").text("Elapsed time: " + elapsedTime + " milliseconds");
+                }
+            });
+        });
+
+    </script>
+
+
+<script>
+
+        function checkSelection(selectElement) {
+            var selectedValue = selectElement.value;
+            var otherInputDiv = document.getElementById("otherInput");
+
+            if (selectedValue === "other") {
+                otherInputDiv.style.display = "block";
+            } else {
+                otherInputDiv.style.display = "none";
+            }
+        }
+
+    </script>
+
+
+    
+
+
 
 </body>
 

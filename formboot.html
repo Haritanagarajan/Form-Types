@@ -21,7 +21,7 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    
+
 
     <style>
         #myform {
@@ -104,8 +104,7 @@
 
 <body>
 
-    <form method="#" id="myform" name="myform" action="https://www.cgvakindia.com/" class="row g-3 needs-validation"
-        novalidate>
+    <form method="#" id="myform" name="myform" action="#" class="row g-3 needs-validation" novalidate>
         <fieldset id="field">
 
             <h2>REGISTRATION fORM</h2>
@@ -179,8 +178,8 @@
 
                 <label class="form-label" for="validationCustom04"></label>
 
-                <input type="text" class="form-control" placeholder="First Name" id="firstname" pattern="[A-Za-z]{3-10}"
-                    required>
+                <input type="text" class="form-control" placeholder="First Name" id="firstname"
+                    pattern="/^[A-Za-z]{3-10}$/" required>
 
                 <div class="valid-feedback">
                     Looks good!
@@ -223,8 +222,8 @@
                 <h5>User Password</h5>
 
                 <label class="form-label" for="validationCustom07"></label>
-                <input class="form-control" type="text" placeholder="password" id="password"
-                    pattern="[A-Za-z0-9@#$%^&*!]{1-10}" required>
+                <input class="form-control" type="text" placeholder="password" id="password" pattern="[A-Za-z0-9]{1-10}"
+                    required>
 
                 <div class="valid-feedback">
                     Looks good!
@@ -299,9 +298,10 @@
             <div>
 
                 <label class="form-label" for="validationCustom13"></label>
-                <input class="form-control" type="text" placeholder="City" id="city" pattern="[A-Za-z]{5-20}" required>
+                <input class="form-control" type="text" placeholder="City" id="city" pattern="/^[A-Za-z]{5,20}$/"
+                    required>
 
-                <div class="valid-feedback">
+                <div class=" valid-feedback">
                     Looks good!
                 </div>
 
@@ -323,7 +323,7 @@
 
                     <label class="form-label" for="validationCustom15"></label>
                     <input class="form-control" type="text" placeholder="State/Province" id="state"
-                        pattern="[A-Za-z]{1-20}" required>
+                        pattern="/^[A-Za-z]{1-20}$/" required>
 
                     <div class="valid-feedback">
                         Looks good!
@@ -338,12 +338,31 @@
                     <h5>Date of Birth</h5>
 
                     <label class="form-label" for="validationCustom16"></label>
-                    <input class="form-control" type="date" id="dob" placeholder="birthdate" required>
+                    <!-- <input class="form-control" type="date" id="dob" placeholder="birthdate" required> -->
+                    <input class="form-control" type="text" id="dob" placeholder="birthdate"
+                        pattern="\d{4}-\d{1,2}-\d{1,2}" required>
+
 
                     <div class="valid-feedback">
                         Looks good!
                     </div>
 
+                </div>
+
+                <div>
+                    <h5>Login Time</h5>
+
+                    <label class="form-label" for="validationCustom23">Login Time:</label>
+                    <input class="form-control" type="datetime-local" id="loginTime" required>
+
+                    <div id="result" style="display: none;">
+                        <h3>Elapsed Time</h3>
+                        <p id="hours"></p>
+                        <p id="seconds"></p>
+                    </div>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
                 </div>
 
 
@@ -363,12 +382,39 @@
 
 
 
+
+                <div>
+
+                    <h5>Select your College</h5>
+
+                    <label for="validationCustom23" class="form-label"></label>
+
+                    <select id="myDropdown" onchange="checkSelection(this)">
+                        <option value="">Select an option</option>
+                        <option value="Sri krishna adithys college of arts and science">Sri krishna adithys college of arts and science</option>
+                        <option value="Sri krishna college of technology">Sri krishna college of technology</option>
+                        <option value="psg college of engineering and technology ">psg college of engineering and technology</option>
+                        <option value="other">Other</option>
+
+                    </select>
+
+                    <div id="otherInput" style="display: none;">
+                        <label for="otherText">Please specify:</label>
+                        <input type="text" id="otherText" />
+                    </div>
+
+                </div><br>
+
+
+
+
+
                 <div>
 
                     <h5>Upload your CV</h5>
 
-                    <p><label class="form-label" for="validationCustom18" >Select files:</label></p>
-                    <input class="form-control"  type="file" id="files" name="files" multiple required>
+                    <p><label class="form-label" for="validationCustom18">Select files:</label></p>
+                    <input class="form-control" type="file" id="files" name="files" multiple required>
 
                     <div class="valid-feedback">
                         Looks good!
@@ -433,6 +479,8 @@
                         and other conditions set out.</p>
 
                 </div>
+
+
 
 
                 <div>
@@ -596,6 +644,8 @@
             var anyinfo = document.getElementById("anyinfo").value;
             var start = document.getElementById("start1").value;
             var end = document.getElementById("end1").value;
+            var otherInput = document.getElementById("otherInput").value;
+            var myDropdown = document.getElementById("myDropdown").value;
 
             document.write("FIRST NAME:" + firstname + "<br><br>");
             document.write("LAST NAME:" + lastname + "<br><br>");
@@ -613,6 +663,18 @@
             document.write("CGPA:" + cgpa + "<br><br>");
             document.write("ANYINFO:" + anyinfo + "<br><br>");
 
+
+            if (otherInput) {
+                document.write("college:" + otherInput + "<br><br>");
+
+            }
+            else {
+                document.write("college:" + myDropdown + "<br><br>");
+
+            }
+
+
+
             var dobb = new Date(dob);
             var dif = Date.now() - dobb.getTime();
             var daydiff = (dif / 31536000000).toFixed(0);
@@ -629,7 +691,47 @@
             document.write("Years of experience:" + years + "<br><br>");
             document.write("month of experience:" + months + "<br><br>");
 
-           
+
+        }
+
+    </script>
+
+
+    <script>
+
+        document.getElementById('myform').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var loginTimeInput = document.getElementById('loginTime');
+            var loginTime = new Date(loginTimeInput.value);
+
+            var currentTime = new Date();
+            var elapsedTime = currentTime - loginTime;
+
+            var hours = Math.floor(elapsedTime / (1000 * 60 * 60));
+            var seconds = Math.floor((elapsedTime / 1000) % 60);
+
+            document.getElementById('hours').textContent = "Hours: " + hours;
+            document.getElementById('seconds').textContent = "Seconds: " + seconds;
+
+            document.getElementById('result').style.display = 'block';
+
+        });
+
+    </script>
+
+
+    <script>
+
+        function checkSelection(selectElement) {
+            var selectedValue = selectElement.value;
+            var otherInputDiv = document.getElementById("otherInput");
+
+            if (selectedValue === "other") {
+                otherInputDiv.style.display = "block";
+            } else {
+                otherInputDiv.style.display = "none";
+            }
         }
 
     </script>
